@@ -1,0 +1,23 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "sqlite"
+    url      = "file:./dev.db"
+}
+
+model Delay {
+    id           Int      @id @default(autoincrement())
+    externalId   Int
+    createdAt    DateTime @default(now())
+    updatedAt    DateTime @updatedAt
+    expectedTime DateTime
+    newTime      DateTime
+    info         String
+    origin       String
+    destination  String
+    track        String
+    train        String
+    type         String
+}
