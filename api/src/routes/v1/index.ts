@@ -9,10 +9,10 @@ router.get("/delays", async (req, res) => {
     res.json(allDelays);
 });
 
-// router.post("/delay", async (req, res) => {
-//     const delay = req.body as Delay;
-//     const newId = await addDelay(delay);
-//     res.json(newId);
-// });
+router.post("/delay", async (req, res) => {
+    const delay = req.body as Delay;
+    const newId = await addDelay(delay);
+    res.json(newId);
+});
 
 export default router;

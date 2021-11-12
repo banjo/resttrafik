@@ -7,8 +7,13 @@ export const getDelays = async () => {
 };
 
 export const addDelay = async (delay: Delay) => {
+    delay.createdAt = new Date();
+    delay.updatedAt = new Date();
+    delay.expectedTime = new Date(delay.expectedTime);
+    delay.newTime = new Date(delay.newTime);
+
     const newDelay = await prisma.delay.create({
-        data: delay,
+        data: { ...delay },
     });
 
     return newDelay.id;
