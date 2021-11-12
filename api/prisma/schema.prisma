@@ -9,7 +9,7 @@ datasource db {
 
 model Delay {
     id           Int      @id @default(autoincrement())
-    externalId   Int
+    externalId   String
     createdAt    DateTime @default(now())
     updatedAt    DateTime @updatedAt
     expectedTime DateTime
