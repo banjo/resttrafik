@@ -1,10 +1,9 @@
 import { CronJob } from "cron";
+require("dotenv").config({ path: "../.env" });
 import fetchLate from "./tasks/fetchLate/fetchLate";
 
-const cronjob = new CronJob("* * * * * *", async () => {
-    await fetchLate();
-});
+const cronExpression = process.env.CRON_JOB_TIME || "0 * * * * *"; // every minute
 
-// cronjob.start();
+const cronjob = new CronJob(cronExpression, fetchLate);
 
-fetchLate();
+cronjob.start();

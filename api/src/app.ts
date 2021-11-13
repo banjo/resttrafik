@@ -4,9 +4,11 @@ import routesV1 from "./routes/v1";
 
 const app = express();
 
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(cors({ origin: "*", optionsSuccessStatus: 200 }));
+
+const corsOrigin = process.env.CORS_ORIGIN || "*";
+app.use(cors({ origin: corsOrigin, optionsSuccessStatus: 200 }));
 
 app.use("/api/v1", routesV1);
 

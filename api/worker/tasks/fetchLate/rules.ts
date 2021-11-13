@@ -1,8 +1,8 @@
 import { Transfer } from "../../../src/types/types";
 import { getCurrentDate, isBetweenDates, isValidDate } from "./helpers";
 
-const stationToPass = "trollhättan";
-const minutesToBeLate = 20;
+const stationToPass = process.env.STATION_TO_PASS || "trollhättan";
+const minutesToBeLate = process.env.MINUTES_TO_BE_LATE || 20;
 const timesAtStation = [
     {
         start: "06:00",
@@ -64,7 +64,7 @@ const passesCorrectStation = (transfer: Transfer) => {
 const rules: ((transfer: Transfer) => boolean)[] = [
     isLate,
     passesCorrectStation,
-    atStationBetweenTimes,
+    // atStationBetweenTimes,
 ];
 
 export const isQualifiable = (transfer: Transfer) => {
