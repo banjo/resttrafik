@@ -1,0 +1,30 @@
+# Use postgres/example user/password credentials
+version: "3.1"
+
+services:
+    db:
+        container_name: db
+        image: postgres
+        ports:
+            - 5432:5432/tcp
+        restart: always
+        environment:
+            POSTGRES_PASSWORD: example
+        restart: always
+
+    adminer:
+        image: adminer
+        restart: always
+        ports:
+            - 5002:8080
+
+    api:
+        container_name: api
+        build:
+            context: ../api
+        ports:
+            - 5001:5001
+        depends_on:
+            - db
+        env_file:
+            - ../api/.env
