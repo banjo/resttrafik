@@ -6,7 +6,7 @@ const delayData: Prisma.DelayCreateInput[] = [
     {
         destination: "gbg",
         expectedTime: new Date(),
-        externalId: 123,
+        externalId: "123",
         info: "Some info",
         newTime: new Date(),
         origin: "thn",
