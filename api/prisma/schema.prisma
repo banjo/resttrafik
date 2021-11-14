@@ -3,8 +3,8 @@ generator client {
 }
 
 datasource db {
-    provider = "postgresql"
-    url      = "postgresql://postgres:example@db:5432/postgres?schema=public"
+    provider = "mysql"
+    url      = env("DATABASE_URL")
 }
 
 model Delay {

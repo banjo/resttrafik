@@ -3,14 +3,13 @@ version: "3.1"
 
 services:
     db:
+        image: mariadb
         container_name: db
-        image: postgres
+        restart: always
         ports:
-            - 5432:5432/tcp
-        restart: always
-        environment:
-            POSTGRES_PASSWORD: example
-        restart: always
+            - "3306:3306"
+        env_file:
+            - ../api/prisma/.env
 
     adminer:
         image: adminer
@@ -20,6 +19,7 @@ services:
 
     api:
         container_name: api
+        restart: on-failure
         build:
             context: ../api
         ports:
