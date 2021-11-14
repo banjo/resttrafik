@@ -22,6 +22,8 @@ COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package*.json ./
 COPY --from=builder /app/dist ./dist
 COPY prisma ./prisma/
+RUN npm install pm2@latest -g
+COPY ./startup.sh ./startup.sh
 RUN npx prisma generate
 
-CMD ["node", "dist/src/index.js"]
+ENTRYPOINT [ "sh", "startup.sh" ]

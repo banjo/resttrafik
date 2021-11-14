@@ -18,6 +18,8 @@ npx prisma generate
 4. Run `npx prisma migrate dev` on host machine to migrate database
 5. Change back to `db`.
 
+Alternatively, start the docker-compose build and run the `migrate.sh` file.
+
 ## Run application
 
 Change directory to docker directory.
