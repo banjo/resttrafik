@@ -10,6 +10,8 @@ services:
             - "3306:3306"
         env_file:
             - ../api/prisma/.env
+        volumes:
+            - ../data/mysql:/var/lib/mysql
 
     adminer:
         image: adminer

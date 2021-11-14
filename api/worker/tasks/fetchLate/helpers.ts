@@ -45,7 +45,7 @@ export const mapToDelayWithoutId = (transfer: Transfer): DelayWithoutId => {
         origin: transfer.origin,
         track: transfer.track,
         train: transfer.train,
-        type: transfer.train,
+        type: transfer.type,
         updatedAt: new Date(),
     };
 };
