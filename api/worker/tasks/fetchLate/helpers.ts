@@ -31,7 +31,10 @@ export const mapToDelayWithoutId = (transfer: Transfer): DelayWithoutId => {
     const late = transfer.newArrival || transfer.newDeparture;
 
     if (late === null || !isValidDate(new Date(late))) {
-        console.error("Could not get late transfer time");
+        console.error(
+            "Could not get late transfer time for transfer: ",
+            transfer
+        );
         throw new Error("Could not get late transfer time");
     }
 
