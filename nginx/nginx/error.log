@@ -1,0 +1,4 @@
+2021/11/15 20:42:35 [error] 30#30: *3 "/etc/nginx/html/index.html" is not found (2: No such file or directory), client: 64.137.108.224, server: www.resttrafik.tk, request: "GET / HTTP/1.1", host: "resttrafik.duckdns.org"
+2021/11/15 20:42:37 [error] 30#30: *4 the rewritten URI has a zero length, client: 83.255.21.110, server: www.resttrafik.tk, request: "GET /database HTTP/1.1", host: "www.resttrafik.tk"
+2021/11/15 20:50:32 [error] 24#24: *1 "/etc/nginx/html/index.html" is not found (2: No such file or directory), client: 83.255.21.110, server: www.resttrafik.tk, request: "GET / HTTP/1.1", host: "www.resttrafik.tk"
+2021/11/15 20:50:38 [error] 24#24: *1 the rewritten URI has a zero length, client: 83.255.21.110, server: www.resttrafik.tk, request: "GET /database HTTP/1.1", host: "www.resttrafik.tk"

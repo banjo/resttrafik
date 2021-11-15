@@ -12,8 +12,6 @@ app.use(cors({ origin: corsOrigin, optionsSuccessStatus: 200 }));
 
 const baseUrl = process.env.NODE_ENV === "production" ? "/v1" : "/api/v1"
 
-console.log(baseUrl);
-
 app.use(baseUrl, routesV1);
 
 export default app;
