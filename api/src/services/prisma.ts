@@ -21,7 +21,7 @@ export const getDelays = async () => {
 };
 
 export const addDelay = async (delay: DelayWithoutId) => {
-    const updatedDelay = convertToCorrectDates(delay);
+    const updatedDelay = convertToCorrectDates(delay, true);
 
     const newDelay = await prisma.delay.create({
         data: { ...updatedDelay },
@@ -42,7 +42,7 @@ export const updateDelay = async (newDelay: Delay) => {
         return false;
     }
 
-    const formatedDelay = convertToCorrectDates(newDelay) as Delay;
+    const formatedDelay = convertToCorrectDates(newDelay, false) as Delay;
 
     const updatedDelay = await prisma.delay.update({
         where: {
