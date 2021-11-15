@@ -10,6 +10,10 @@ app.use(express.json());
 const corsOrigin = process.env.CORS_ORIGIN || "*";
 app.use(cors({ origin: corsOrigin, optionsSuccessStatus: 200 }));
 
-app.use("/api/v1", routesV1);
+const baseUrl = process.env.NODE_ENV === "production" ? "/v1" : "/api/v1"
+
+console.log(baseUrl);
+
+app.use(baseUrl, routesV1);
 
 export default app;

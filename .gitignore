@@ -4,3 +4,4 @@ dist/
 *.env
 api/prisma/migrations
 data
+nginx/cache

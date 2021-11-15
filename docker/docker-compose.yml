@@ -2,31 +2,44 @@
 version: "3.1"
 
 services:
-    db:
-        image: mariadb
-        container_name: db
-        restart: always
-        ports:
-            - "3306:3306"
-        env_file:
-            - ../api/prisma/.env
-        volumes:
-            - ../data/mysql:/var/lib/mysql
+  db:
+    image: mariadb
+    container_name: db
+    restart: always
+    ports:
+      - "3306:3306"
+    env_file:
+      - ../api/prisma/.env
+    volumes:
+      - ../data/mysql:/var/lib/mysql
 
-    adminer:
-        image: adminer
-        restart: always
-        ports:
-            - 5002:8080
+  adminer:
+    container_name: adminer
+    image: adminer
+    restart: always
+    ports:
+      - 5002:8080
 
-    api:
-        container_name: api
-        restart: on-failure
-        build:
-            context: ../api
-        ports:
-            - 80:5001
-        depends_on:
-            - db
-        env_file:
-            - ../api/.env
+  api:
+    container_name: api
+    restart: on-failure
+    build:
+      context: ../api
+    ports:
+      - 5001:5001
+    depends_on:
+      - db
+    env_file:
+      - ../api/.env
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    volumes:
+      - ../nginx/nginx.conf:/etc/nginx/nginx.conf
+      # - ../nginx/nginx/error.log:/etc/nginx/error_log.log
+      - ../nginx/cache/:/etc/nginx/cache
+      - /etc/letsencrypt/:/etc/letsencrypt/
+    ports:
+      - 80:80
+      - 443:443
