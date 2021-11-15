@@ -5,3 +5,4 @@ dist/
 api/prisma/migrations
 data
 nginx/cache
+nginx/nginx
