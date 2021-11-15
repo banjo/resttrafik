@@ -22,9 +22,10 @@ const main = async () => {
 
     console.log(`Found ${transfers.length} transfers...`);
 
-    const transfersToSave = [];
+    const transfersToSave: Transfer[] = [];
     for (const transfer of transfers) {
         if (isQualifiable(transfer)) {
+            console.log("Will save delay ", transfer);
             transfersToSave.push(transfer);
         }
     }
@@ -33,7 +34,7 @@ const main = async () => {
 
     if (transfersToSave.length === 0) return;
 
-    await addOrUpdateDelays(transfers);
+    await addOrUpdateDelays(transfersToSave);
 
     console.log(`Saved delays successfully...`);
 };
