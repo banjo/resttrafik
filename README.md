@@ -64,3 +64,37 @@ LocalForward localhost:6002 localhost:5002
 ```
 
 Access it with `ssh hetzner` in this case.
+
+## Setup nginx
+
+Nginx is used as a reverse proxy directly in Ubuntu. You can change config in the `nginx`folder. To use the new config you need to do the following.
+
+```bash
+# copy file
+cp nginx.conf /etc/nginx/nginx.conf
+
+# restart nginx
+sudo systemctl reload nginx
+```
+
+Basic commands 
+
+```bash
+# status
+sudo sustemctl status nginx
+
+# start
+sudo systemctl start nginx
+
+# stop
+sudo systemctl stop nginx
+
+# restart
+sudo systemctl reload nginx
+
+# launch at boot
+sudo systemctl enable nginx
+
+# disable at boot
+sudo systemctl disable nginx
+```
