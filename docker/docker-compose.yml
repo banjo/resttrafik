@@ -32,6 +32,13 @@ services:
     env_file:
       - ../api/.env
 
+  web:
+    container_name: web
+    build:
+      context: ../web
+    ports:
+      - 6000:80
+
   nginx:
     image: nginx:latest
     container_name: nginx
