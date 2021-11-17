@@ -2,26 +2,39 @@
 version: "3.1"
 
 services:
+  db:
+    image: mariadb
+    container_name: db
+    restart: always
+    volumes:
+      - ../data/mysql:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    env_file:
+      - ../api/prisma/.env
+
   adminer:
+    container_name: adminer
+    image: adminer
+    restart: always
     ports:
       - 5002:8080
 
   api:
+    container_name: api
+    restart: on-failure
     build:
-      args:
-        - NODE_ENV=production
+      context: ../api
     ports:
       - 5001:5001
-    environment:
-      - PRODUCTION=true
-  
+    depends_on:
+      - db
+    env_file:
+      - ../api/.env.prod
+
   web:
     container_name: web
     build:
       context: ../web
-      args:
-        - NODE_ENV=production
     ports:
       - 6000:80
-    environment:
-      - PRODUCTION=true

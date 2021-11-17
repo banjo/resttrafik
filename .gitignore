@@ -2,6 +2,7 @@
 node_modules/
 dist/
 *.env
+*.env.prod
 api/prisma/migrations
 data
 nginx/cache

@@ -25,25 +25,9 @@ services:
     restart: on-failure
     build:
       context: ../api
-      args:
-        - NODE_ENV=development
     ports:
       - 5001:5001
     depends_on:
       - db
     env_file:
       - ../api/.env
-    environment:
-      - PRODUCTION=false
-
-
-  # web:
-  #   container_name: web
-  #   build:
-  #     context: ../web
-  #     args:
-  #       - NODE_ENV=development
-  #   ports:
-  #     - 6000:80
-  #   environment:
-  #     - PRODUCTION=false

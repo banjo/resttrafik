@@ -39,7 +39,7 @@ Change directory to docker directory.
 docker-compose up --build -d
 
 # build prod
-docker-compose -f docker-compose.yml -f docker-compose.prod.yml up --build -d
+docker-compose -f docker-compose.prod.yml up --build -d
 
 # see logs
 docker-compose logs
@@ -47,6 +47,8 @@ docker-compose logs
 # stop the application
 docker-compose down --remove-orphans
 ```
+
+Currently, the variables the separate the build are in `.env` and `.env.prod`.
 
 ## Env variables
 
