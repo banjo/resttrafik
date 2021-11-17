@@ -2,6 +2,7 @@ import { getDelays } from "../../api";
 import { Delay } from "../../types";
 import React, { useEffect, useState } from "react";
 import { DelayCard } from "../DelayCard";
+import { auth } from "../../lib/firebase";
 
 export const Dashboard = () => {
     const [delays, setDelays] = useState<Delay[]>([]);
@@ -22,14 +23,17 @@ export const Dashboard = () => {
         setDelays(fetchedDelays);
     };
 
+    const logout = () => {
+        auth.signOut();
+    };
+
     return (
         <div
             className={
-                "bg-bluegray-800 flex flex-col items-center text-white " +
-                (delays.length > 5 ? "h-full" : "h-screen")
+                "w-full bg-bluegray-800 flex flex-col items-center space-y-8"
             }
         >
-            <h1 className="text-5xl font-bold mt-10 mb-12">Resttrafik</h1>
+            <button onClick={logout}>Logga ut</button>
 
             {delays.length > 0 && (
                 <div className="flex flex-col items-center w-full space-y-10 mb-16">
