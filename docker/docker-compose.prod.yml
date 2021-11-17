@@ -1,0 +1,27 @@
+# Use postgres/example user/password credentials
+version: "3.1"
+
+services:
+  adminer:
+    ports:
+      - 5002:8080
+
+  api:
+    build:
+      args:
+        - NODE_ENV=production
+    ports:
+      - 5001:5001
+    environment:
+      - PRODUCTION=true
+  
+  web:
+    container_name: web
+    build:
+      context: ../web
+      args:
+        - NODE_ENV=production
+    ports:
+      - 6000:80
+    environment:
+      - PRODUCTION=true

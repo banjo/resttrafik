@@ -35,8 +35,11 @@ Alternatively, start the docker-compose build and run the `migrate.sh` file.
 Change directory to docker directory.
 
 ```bash
-# build in detached mode
+# build in detached mode (for development, web app separetly)
 docker-compose up --build -d
+
+# build prod
+docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
 
 # see logs
 docker-compose logs

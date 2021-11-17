@@ -1,5 +1,8 @@
 FROM node:16 AS builder
 
+ARG NODE_ENV
+ENV NODE_ENV $NODE_ENV
+
 # Create app directory
 WORKDIR /app
 
