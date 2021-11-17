@@ -37,10 +37,10 @@ export const DelayCard = (props: DelayCardProps) => {
                 {getDate(delay)}
             </span>
 
-            <span className="text-green-400 absolute top-4 right-4 text-2xl font-bold">
+            <span className="text-red-600 absolute top-4 right-4 text-2xl font-bold line-through">
                 {getTime(delay.expectedTime)}
             </span>
-            <span className="line-through text-red-600 absolute top-4 right-24 text-2xl font-bold">
+            <span className="text-green-400 absolute top-4 right-24 text-2xl font-bold">
                 {getTime(delay.newTime)}
             </span>
 
