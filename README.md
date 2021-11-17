@@ -39,7 +39,7 @@ Change directory to docker directory.
 docker-compose up --build -d
 
 # build prod
-docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+docker-compose -f docker-compose.yml -f docker-compose.prod.yml up --build -d
 
 # see logs
 docker-compose logs
