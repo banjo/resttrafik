@@ -44,11 +44,11 @@ export const DelayCard = (props: DelayCardProps) => {
                 {getTime(delay.newTime)}
             </span>
 
-            <span className="absolute bottom-4 md:bottom-4 left-4 text-sm md:text-base text-white">
+            <span className="absolute bottom-12 md:bottom-4 left-4 text-sm md:text-base text-white">
                 {getTravelPath(delay)}
             </span>
 
-            <span className="absolute left-4 bottom-9 md:bottom-9 text-sm md:text-base font-bold ">
+            <span className="absolute left-4 bottom-4 md:bottom-9 text-sm md:text-base font-bold ">
                 {delay.info}
             </span>
 
