@@ -1,9 +1,11 @@
 import express from "express";
 import cors from "cors";
+const morgan = require("morgan");
 import routesV1 from "./routes/v1";
 
 const app = express();
 
+app.use(morgan("tiny"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
