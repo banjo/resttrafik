@@ -17,7 +17,11 @@ export const getDelay = async (externalId: string) => {
 };
 
 export const getDelays = async () => {
-    return await prisma.delay.findMany();
+    return await prisma.delay.findMany({
+        orderBy: {
+            newTime: "desc",
+        },
+    });
 };
 
 export const addDelay = async (delay: DelayWithoutId) => {
