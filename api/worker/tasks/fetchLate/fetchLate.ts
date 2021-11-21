@@ -1,5 +1,6 @@
 import { getStation } from "../../../src/providers/tagtider";
 import { addOrUpdateDelays } from "../../../src/services/prisma";
+import { sendTelegramMessage } from "../../../src/services/telegram";
 import { Transfer } from "../../../src/types/types";
 import { isQualifiable } from "./rules";
 
@@ -35,7 +36,7 @@ const main = async () => {
     if (transfersToSave.length === 0) return;
 
     await addOrUpdateDelays(transfersToSave);
-
+    sendTelegramMessage(`Added ${transfersToSave.length} new delay(s)...`);
     console.log(`Saved delays successfully...`);
 };
 
