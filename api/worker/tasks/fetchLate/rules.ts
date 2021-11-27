@@ -13,6 +13,7 @@ const timesAtStation = [
         end: "20:30",
     },
 ];
+const canceledText = "inställt";
 
 const atStationBetweenTimes = (transfer: Transfer) => {
     const expected = isValidDate(new Date(transfer.arrival))
@@ -64,6 +65,10 @@ const passesCorrectStation = (transfer: Transfer) => {
     );
 };
 
+const isCanceled = (transfer: Transfer) => {
+    return transfer.comment?.toLowerCase().includes(canceledText);
+};
+
 const rules: ((transfer: Transfer) => boolean)[] = [
     isLate,
     passesCorrectStation,
@@ -71,6 +76,10 @@ const rules: ((transfer: Transfer) => boolean)[] = [
 ];
 
 export const isQualifiable = (transfer: Transfer) => {
+    if (passesCorrectStation(transfer) && isCanceled(transfer)) {
+        return true;
+    }
+
     for (const rule of rules) {
         if (!rule(transfer)) return false;
     }
