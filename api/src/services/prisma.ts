@@ -5,6 +5,7 @@ import {
 } from "../../worker/tasks/fetchLate/helpers";
 import { convertToCorrectDates } from "../helpers/date";
 import { DelayWithoutId, Transfer } from "../types/types";
+import { sendTelegramMessage } from "./telegram";
 
 const prisma = new PrismaClient();
 
@@ -70,5 +71,7 @@ export const addOrUpdateDelays = async (transfers: Transfer[]) => {
 
         const newDelay = mapToDelayWithoutId(transfer);
         await addDelay(newDelay);
+
+        sendTelegramMessage(`Added 1 new delay...`);
     }
 };
