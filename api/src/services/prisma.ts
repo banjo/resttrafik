@@ -72,6 +72,6 @@ export const addOrUpdateDelays = async (transfers: Transfer[]) => {
         const newDelay = mapToDelayWithoutId(transfer);
         await addDelay(newDelay);
 
-        sendTelegramMessage(`Added 1 new delay...`);
+        sendTelegramMessage(`En ny försening har lagts till...`);
     }
 };
