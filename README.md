@@ -1,5 +1,38 @@
 # Resttrafik
 
+![https://i.imgur.com/fBjdIF2.png](resttrafik page)
+
+Resttrafik is a side project of mine. It uses the Swedish `tagtider` API to fetch the train schedule and save all the late/canceled trains to a database. A simple web page is used to preview the data.
+
+It was an attempt from my side to create a full-stack app and host it myself, merely for practicing. This project is not under active maintenance and might not work by the time this is read.
+
+## Technologies used
+
+* Node
+* TypeScript
+* Express
+* Docker
+* Docker-compose
+* Prisma
+* Postgres
+* Nginx
+* React
+* Tailwind
+* Firebase (for auth)
+* Ubuntu
+* PM2
+
+
+## How it works
+
+Everything is hosted on a single Ubuntu instance using docker-compose. API, web and a worker (all written in TypeScript). 
+
+The web worker runs once every minute to fetch the train schedule based on the parameters you've defined. It saves the ones that follow the defined rules in a Postgres database using Prisma. 
+
+To access the data a React page is served which uses Firebase to authenticate the user. It's free to use, you just need to sign in with Google.
+
+Nginx is used as a reverse proxy. 
+
 ## Prisma commands
 
 ```bash
