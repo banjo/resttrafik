@@ -1,10 +1,10 @@
 # Resttrafik
 
-![https://i.imgur.com/fBjdIF2.png](resttrafik page)
+![resttrafik page](https://i.imgur.com/fBjdIF2.png)
 
-Resttrafik is a side project of mine. It uses the Swedish `tagtider` API to fetch the train schedule and save all the late/canceled trains to a database. A simple web page is used to preview the data.
+[Resttrafik](https://www.resttrafik.tk) is a side project of mine. It uses the Swedish `tagtider` API to fetch the train schedule and save all the late/canceled trains to a database. A simple web page is used to preview the data.
 
-It was an attempt from my side to create a full-stack app and host it myself, merely for practicing. This project is not under active maintenance and might not work by the time this is read.
+It was an attempt from my side to create a full-stack app and host it myself, merely for practicing. This project is not under active maintenance and might not work by the time this is read. 
 
 ## Technologies used
 
