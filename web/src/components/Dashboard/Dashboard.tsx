@@ -35,12 +35,14 @@ export const Dashboard = () => {
         >
             <button onClick={logout}>Logga ut</button>
 
-            {delays.length > 0 && (
+            {delays.length > 0 ? (
                 <div className="flex flex-col items-center justify-center w-full space-y-10">
                     {delays.map((delay, index) => {
                         return <DelayCard delay={delay} key={index} />;
                     })}
                 </div>
+            ) : (
+                <div>Inga avgångar sparade just nu</div>
             )}
 
             <div className="mt-20"></div>
