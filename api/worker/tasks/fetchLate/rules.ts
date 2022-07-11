@@ -69,9 +69,21 @@ const isCanceled = (transfer: Transfer) => {
     return transfer.comment?.toLowerCase().includes(canceledText);
 };
 
+const hasHappened = (transfer: Transfer) => {
+    const expected = isValidDate(new Date(transfer.arrival))
+        ? new Date(transfer.arrival)
+        : new Date(transfer.departure);
+
+    const now = new Date();
+    const hasHappened = now.getTime() > expected.getTime();
+
+    return hasHappened;
+};
+
 const rules: ((transfer: Transfer) => boolean)[] = [
     isLate,
     passesCorrectStation,
+    hasHappened,
     // atStationBetweenTimes,
 ];
 
